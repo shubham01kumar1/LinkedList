@@ -7,6 +7,19 @@ public class MyLinkedList<E> {
         this.head = null;
     }
 
+    // adding node at the beginning of linklist
+    public void add(INode<E> newNode) {
+
+        if(this.head == null) {
+            this.head = newNode;
+        }
+        else {
+            INode<E> tempNode = this.head;
+            this.head = newNode;
+            this.head.setNext(tempNode);
+        }
+    }
+
     //adding node at the end of linklist
     public void append(INode<E> newNode) {
         if(this.head == null) {

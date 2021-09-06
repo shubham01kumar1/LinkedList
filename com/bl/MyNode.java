@@ -31,7 +31,7 @@ public class MyNode<E> implements INode<E> {
     public String toString() {
         String myNodeString = "MyNode{" + "value=" + value  + "}";
         if (next !=null)
-            myNodeString+= "->" + next + "i";
+            myNodeString+= "->" + next + "";
         return myNodeString;
     }
 }
