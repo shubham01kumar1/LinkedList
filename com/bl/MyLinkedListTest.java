@@ -8,6 +8,24 @@ import com.bl.MyNode;
 
 class MyLinkedListTest {
 
+    @Test
+    void given3NumbersWhenLinkedShouldBeAppendAtEnd() {
+        MyNode<Integer> myFirstNode = new MyNode<>(56);
+        MyNode<Integer> mySecondNode = new MyNode<>(30);
+        MyNode<Integer> myThirdNode = new MyNode<>(70);
+
+        MyLinkedList myLinkedList = new MyLinkedList();
+        myLinkedList.append(myFirstNode);
+        myLinkedList.append(mySecondNode);
+        myLinkedList.append(myThirdNode);
+
+        myLinkedList.printMyNodes();
+
+        boolean result = myLinkedList.head.equals(myFirstNode) && myLinkedList.head.getNext().equals(mySecondNode)
+                && myLinkedList.head.getNext().getNext().equals(myThirdNode);
+        assertTrue(result);
+    }
+
         @Test
         void given3NumbersWhenLinkedShouldBeAddedAtBeginning() {
             MyNode<Integer> myFirstNode = new MyNode<>(70);
