@@ -34,4 +34,5 @@ public class MyNode<E> implements INode<E> {
             myNodeString+= "->" + next + "";
         return myNodeString;
     }
+
 }

@@ -5,6 +5,5 @@ public interface INode<E> {
     void setValue(E value);
 
     INode<E> getNext();
-
     void setNext(INode<E> next);
 }

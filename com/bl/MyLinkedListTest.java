@@ -9,6 +9,25 @@ import com.bl.MyNode;
 class MyLinkedListTest {
 
     @Test
+    void given3NumbersWhenLinkedShouldBeAtAPaerticularPosition() {
+        int position = 2;
+        MyNode<Integer> myFirstNode = new MyNode<>(56);
+        MyNode<Integer> mySecondNode = new MyNode<>(70);
+        MyNode<Integer> myThirdNode = new MyNode<>(30);
+
+        MyLinkedList myLinkedList = new MyLinkedList();
+        myLinkedList.append(myFirstNode);
+        myLinkedList.append(mySecondNode);
+        myLinkedList.addingAtPosition(myThirdNode, position);
+
+        myLinkedList.printMyNodes();
+
+        boolean result = myLinkedList.head.equals(myFirstNode) && myLinkedList.head.getNext().equals(myThirdNode)
+                && myLinkedList.head.getNext().getNext().equals(mySecondNode);
+        assertTrue(result);
+    }
+
+    @Test
     void given3NumbersWhenLinkedShouldBeAppendAtEnd() {
         MyNode<Integer> myFirstNode = new MyNode<>(56);
         MyNode<Integer> mySecondNode = new MyNode<>(30);

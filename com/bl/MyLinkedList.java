@@ -2,7 +2,7 @@ package com.bl;
 
 public class MyLinkedList<E> {
     public INode<E> head;
-
+    int size = 0;
     public MyLinkedList() {
         this.head = null;
     }
@@ -18,6 +18,7 @@ public class MyLinkedList<E> {
             this.head = newNode;
             this.head.setNext(tempNode);
         }
+        size++;
     }
 
     //adding node at the end of linklist
@@ -32,6 +33,36 @@ public class MyLinkedList<E> {
             }
             temp.setNext(newNode);
         }
+        size++;
+    }
+
+    //Inserting node in between two nodes
+    public void addingAtPosition(INode<E> newNode, int pos) {
+        if (pos == 1){
+            add(newNode);
+            size++;
+        }
+        else if(pos>1 && pos <= size+1){
+            int count=1;
+            INode<E> tempPrev = head;
+
+            while(count < pos-1 && tempPrev.getNext() != null) {
+                tempPrev=tempPrev.getNext();
+                count++;
+            }
+
+            if(tempPrev.getNext() == null){
+                tempPrev.setNext(newNode);
+            }
+            else {
+                INode<E> tempNext = tempPrev.getNext();
+                tempPrev.setNext(newNode);
+                tempPrev.getNext().setNext(tempNext);
+            }
+            size++;
+        }
+        else
+            System.out.println("Cannot add to this position as size of linked list is: " + size);
     }
 
     //printing linkList
