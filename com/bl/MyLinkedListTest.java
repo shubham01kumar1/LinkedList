@@ -9,7 +9,7 @@ import com.bl.MyNode;
 class MyLinkedListTest {
 
     @Test
-    void given3NumbersWhenLinkedShouldBeAtAPaerticularPosition() {
+    void given3NumbersWhenLinkedShouldBeAtAParticularPosition() {
         int position = 2;
         MyNode<Integer> myFirstNode = new MyNode<>(56);
         MyNode<Integer> mySecondNode = new MyNode<>(70);
@@ -62,4 +62,26 @@ class MyLinkedListTest {
                     && myLinkedList.head.getNext().getNext().equals(myFirstNode);
             assertTrue(result);
         }
+
+    @Test
+    void given3NumbersWhenPopShouldDeleteTheFirstNode() {
+        MyNode<Integer> myFirstNode = new MyNode<>(56);
+        MyNode<Integer> mySecondNode = new MyNode<>(30);
+        MyNode<Integer> myThirdNode = new MyNode<>(70);
+
+        MyLinkedList myLinkedList = new MyLinkedList();
+        myLinkedList.append(myFirstNode);
+        myLinkedList.append(mySecondNode);
+        myLinkedList.append(myThirdNode);
+
+        myLinkedList.printMyNodes();
+
+        myLinkedList.pop();     //deleting the first node
+        System.out.println("After pop: ");
+        myLinkedList.printMyNodes();
+
+        boolean result = myLinkedList.head.equals(mySecondNode) && myLinkedList.head.getNext().equals(myThirdNode)
+                && myLinkedList.head.getNext().getNext() == null;
+        assertTrue(result);
+    }
 }

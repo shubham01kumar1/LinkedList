@@ -65,6 +65,11 @@ public class MyLinkedList<E> {
             System.out.println("Cannot add to this position as size of linked list is: " + size);
     }
 
+    //deleting a node from start in the linked List
+    public void  pop() {
+        head=head.getNext();
+    }
+
     //printing linkList
     public void printMyNodes() {
         System.out.println("My Nodes: " + head);

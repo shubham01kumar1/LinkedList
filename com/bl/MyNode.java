@@ -1,6 +1,7 @@
 package com.bl;
 
 public class MyNode<E> implements INode<E> {
+
     private E value;
     private INode<E> next;
 
